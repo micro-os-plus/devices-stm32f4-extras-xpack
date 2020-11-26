@@ -1,6 +1,6 @@
-[![license](https://img.shields.io/github/license/micro-os-plus/template-xpack)](https://github.com/micro-os-plus/template-xpack/blob/xpack/LICENSE)
-[![GitHub issues](https://img.shields.io/github/issues/micro-os-plus/template-xpack.svg)](https://github.com/micro-os-plus/template-xpack/issues)
-[![GitHub pulls](https://img.shields.io/github/issues-pr/micro-os-plus/template-xpack.svg)](https://github.com/micro-os-plus/template-xpack/pulls)
+[![license](https://img.shields.io/github/license/micro-os-plus/devices-stm32f4-xpack)](https://github.com/micro-os-plus/devices-stm32f4-xpack/blob/xpack/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/micro-os-plus/devices-stm32f4-xpack.svg)](https://github.com/micro-os-plus/devices-stm32f4-xpack/issues)
+[![GitHub pulls](https://img.shields.io/github/issues-pr/micro-os-plus/devices-stm32f4-xpack.svg)](https://github.com/micro-os-plus/devices-stm32f4-xpack/pulls)
 
 # Maintainer info
 
@@ -8,18 +8,18 @@
 
 The project is hosted on GitHub:
 
-- https://github.com/micro-os-plus/template-xpack
+- https://github.com/micro-os-plus/devices-stm32f4-xpack.git
 
 To clone it:
 
 ```
-git clone https://github.com/eclipse-embed-cdt/eclipse-plugins \
-  eclipse-plugins.git
+git clone https://github.com/micro-os-plus/devices-stm32f4-xpack.git devices-stm32f4-xpack.git
 ```
 
 ## Prerequisites
 
-A recent [`xpm`](https://www.npmjs.com/package/xpm), which is a portable [Node.js](https://nodejs.org/) command line application.
+A recent [xpm](https://xpack.github.io/xpm/), which is a portable
+[Node.js](https://nodejs.org/) command line application.
 
 ## Publish to npmjs.com
 
@@ -34,7 +34,7 @@ A recent [`xpm`](https://www.npmjs.com/package/xpm), which is a portable [Node.j
 
 The version is visible at:
 
-- https://www.npmjs.com/package/@micro-os-plus/template?activeTab=versions
+- https://www.npmjs.com/package/@micro-os-plus/devices-stm32f4?activeTab=versions
 
 ## Test
 
@@ -51,9 +51,9 @@ When the package is considered stable:
 
 When the release is considered stable, promote it as `latest`:
 
-- `npm dist-tag ls @micro-os-plus/template`
-- `npm dist-tag add @micro-os-plus/template@1.2.3 latest`
-- `npm dist-tag ls @xpack-dev-tools/template`
+- `npm dist-tag ls @micro-os-plus/devices-stm32f4`
+- `npm dist-tag add @micro-os-plus/devices-stm32f4@1.2.3 latest`
+- `npm dist-tag ls @xpack-dev-tools/devices-stm32f4`
 
 ## Announce to the community
 
