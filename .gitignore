@@ -103,6 +103,39 @@ dist
 # TernJS port file
 .tern-port
 
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
 # xpm
 xpacks/
 
@@ -111,5 +144,13 @@ Thumbs.db
 
 # macOS
 .DS_Store
+
+# Eclipse
+.settings/
+Debug*/
+Release*/
+
+# Builds
+build/
 
 # end
