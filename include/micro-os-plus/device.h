@@ -28,8 +28,12 @@
 #ifndef MICRO_OS_PLUS_DEVICE_H_
 #define MICRO_OS_PLUS_DEVICE_H_
 
+// ----------------------------------------------------------------------------
+
 #include <micro-os-plus/architecture.h>
 #include "stm32f4xx.h"
+
+// ----------------------------------------------------------------------------
 
 #endif // MICRO_OS_PLUS_DEVICE_H_
 
