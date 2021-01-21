@@ -9,30 +9,39 @@
 #
 # -----------------------------------------------------------------------------
 
-message(STATUS "Including micro-os-plus-device-stm32f4...")
+message(STATUS "Including micro-os-plus-devices-stm32f4...")
 
-function(target_sources_micro_os_plus_device_stm32f4 target)
+# -----------------------------------------------------------------------------
 
-  get_filename_component(PARENT_DIR ${CMAKE_CURRENT_FUNCTION_LIST_DIR} DIRECTORY)
+function(target_sources_micro_os_plus_device target)
+
+  get_filename_component(xpack_root_folder ${CMAKE_CURRENT_FUNCTION_LIST_DIR} DIRECTORY)
+
+  # Hopefully the file names follow the symbol definitions.
+  string(TOLOWER ${xpack_device_compile_definition} device_name)
 
   target_sources(
     ${target}
 
     PRIVATE
-      ${PARENT_DIR}/src/lists.cpp
+      ${xpack_root_folder}/src/vectors/vectors_${device_name}.c
   )
+
 endfunction()
 
-function(target_include_directories_micro_os_plus_device_stm32f4 target)
+# -----------------------------------------------------------------------------
 
-  get_filename_component(PARENT_DIR ${CMAKE_CURRENT_FUNCTION_LIST_DIR} DIRECTORY)
+function(target_include_directories_micro_os_plus_device target)
 
+  get_filename_component(xpack_root_folder ${CMAKE_CURRENT_FUNCTION_LIST_DIR} DIRECTORY)
+  
   target_include_directories(
     ${target}
 
     PUBLIC
-      ${PARENT_DIR}/include
+      ${xpack_root_folder}/include
   )
+
 endfunction()
 
 # -----------------------------------------------------------------------------
