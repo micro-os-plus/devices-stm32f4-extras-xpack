@@ -1,7 +1,7 @@
 {
   "name": "@micro-os-plus/devices-stm32f4",
   "version": "0.1.0",
-  "description": "A source xPack with complementary STM32F4 files",
+  "description": "A source xPack with µOS++ complementary STM32F4 files",
   "main": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
