@@ -23,12 +23,12 @@ A recent [xpm](https://xpack.github.io/xpm/), which is a portable
 
 ## Publish to npmjs.com
 
-- select the `develop` branch
+- select the `xpack-develop` branch
 - commit all changes
 - update `CHANGELOG.md`; commit with a message like _CHANGELOG: prepare v0.1.2_
 - `npm pack` and check the content of the archive; possibly adjust `.npmignore`
 - `npm version patch`, `npm version minor`, `npm version major`
-- push the develop branch to GitHub
+- push the `xpack-develop` branch to GitHub
 - `npm publish --tag next` (use `--access public` when publishing for
   the first time)
 
@@ -44,7 +44,7 @@ Test the package.
 
 When the package is considered stable:
 
-- merge `develop` into `xpack`
+- merge `xpack-develop` into `xpack`
 - push to GitHub
 
 ## Tag the npm package as `latest`
