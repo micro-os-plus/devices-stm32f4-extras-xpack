@@ -1,5 +1,5 @@
-[![license](https://img.shields.io/github/license/micro-os-plus/devices-stm32f4-xpack)](https://github.com/micro-os-plus/devices-stm32f4-xpack/blob/xpack/LICENSE)
-[![CI on Push](https://github.com/micro-os-plus/devices-stm32f4-xpack/workflows/CI%20on%20Push/badge.svg)](https://github.com/micro-os-plus/devices-stm32f4-xpack/actions?query=workflow%3A%22CI+on+Push%22)
+[![license](https://img.shields.io/github/license/micro-os-plus/devices-stm32f4-extras-xpack)](https://github.com/micro-os-plus/devices-stm32f4-extras-xpack/blob/xpack/LICENSE)
+[![CI on Push](https://github.com/micro-os-plus/devices-stm32f4-extras-xpack/workflows/CI%20on%20Push/badge.svg)](https://github.com/micro-os-plus/devices-stm32f4-extras-xpack/actions?query=workflow%3A%22CI+on+Push%22)
 
 # A source xPack with µOS++ complementary STM32F4 files
 
@@ -7,7 +7,7 @@ This project includes files not available in the official STM32CubeMX packages,
 like the `vectors_*.c`, with the interrupt vectors.
 
 The project is hosted on GitHub as
-[micro-os-plus/devices-stm32f4-xpack](https://github.com/micro-os-plus/devices-stm32f4-xpack).
+[micro-os-plus/devices-stm32f4-extras-xpack](https://github.com/micro-os-plus/devices-stm32f4-extras-xpack).
 
 ## Maintainer info
 
@@ -40,18 +40,18 @@ For now, it can be installed from GitHub:
 $ cd <project>
 $ xpm init # Unless a package.json is already present
 
-$ xpm install github:micro-os-plus/devices-stm32f4-xpack
+$ xpm install github:micro-os-plus/devices-stm32f4-extras-xpack
 ```
 
 When ready, this package will be available as
-[`@micro-os-plus/devices-stm32f4`](https://www.npmjs.com/package/@micro-os-plus/devices-stm32f4)
+[`@micro-os-plus/devices-stm32f4-extras`](https://www.npmjs.com/package/@micro-os-plus/devices-stm32f4-extras)
 from the `npmjs.com` registry:
 
 ```console
 $ cd <project>
 $ xpm init # Unless a package.json is already present
 
-$ xpm install @micro-os-plus/devices-stm32f4@latest
+$ xpm install @micro-os-plus/devices-stm32f4-extras@latest
 ```
 
 ### Git submodule
@@ -64,7 +64,7 @@ $ cd <project>
 $ git init # Unless already a Git project
 $ mkdir -p xpacks
 
-$ git submodule add https://github.com/micro-os-plus/devices-stm32f4-xpack.git \
+$ git submodule add https://github.com/micro-os-plus/devices-stm32f4-extras-xpack.git \
   xpacks/micro-os-plus-devices-stm32f4
 ```
 
