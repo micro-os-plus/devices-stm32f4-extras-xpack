@@ -9,13 +9,24 @@
 #
 # -----------------------------------------------------------------------------
 
-message(STATUS "Including micro-os-plus-devices-stm32f4...")
+if(micro-os-plus-devices-stm32f4-extras-included)
+  return()
+endif()
+
+set(micro-os-plus-devices-stm32f4-extras-included TRUE)
+
+message(STATUS "Including micro-os-plus-devices-stm32f4-extras...")
 
 # -----------------------------------------------------------------------------
 
-function(target_sources_micro_os_plus_devices_stm32f4 target)
+set(xpack_device_family_compile_definition "STM32F4")
+message(STATUS "${xpack_device_family_compile_definition}")
 
-  get_filename_component(xpack_root_folder ${CMAKE_CURRENT_FUNCTION_LIST_DIR} DIRECTORY)
+# -----------------------------------------------------------------------------
+
+function(target_sources_micro_os_plus_devices_stm32f4_extras target)
+
+  get_filename_component(xpack_current_folder ${CMAKE_CURRENT_FUNCTION_LIST_DIR} DIRECTORY)
 
   # Hopefully the file names follow the symbol definitions.
   string(TOLOWER ${xpack_device_compile_definition} device_name)
@@ -23,24 +34,96 @@ function(target_sources_micro_os_plus_devices_stm32f4 target)
   target_sources(
     ${target}
 
-    PRIVATE
-      ${xpack_root_folder}/src/vectors/vectors_${device_name}.c
+    PUBLIC
+      ${xpack_current_folder}/src/vectors/vectors_${device_name}.c
   )
 
 endfunction()
 
 # -----------------------------------------------------------------------------
 
-function(target_include_directories_micro_os_plus_devices_stm32f4 target)
+function(target_include_directories_micro_os_plus_devices_stm32f4_extras target)
 
-  get_filename_component(xpack_root_folder ${CMAKE_CURRENT_FUNCTION_LIST_DIR} DIRECTORY)
+  get_filename_component(xpack_current_folder ${CMAKE_CURRENT_FUNCTION_LIST_DIR} DIRECTORY)
   
   target_include_directories(
     ${target}
 
     PUBLIC
-      ${xpack_root_folder}/include
+      ${xpack_current_folder}/include
   )
+
+endfunction()
+
+# -----------------------------------------------------------------------------
+
+function(target_compile_definitions_micro_os_plus_devices_stm32f4_extras target)
+
+  get_filename_component(xpack_current_folder ${CMAKE_CURRENT_FUNCTION_LIST_DIR} DIRECTORY)
+
+  target_compile_definitions(
+    ${target}
+
+    PUBLIC
+      "${xpack_device_family_compile_definition}"
+  )
+
+endfunction()
+
+# =============================================================================
+
+function(add_libraries_micro_os_plus_devices_stm32f4_extras)
+
+  # ---------------------------------------------------------------------------
+
+  find_package(micro-os-plus-architecture-cortexm)
+
+  # ---------------------------------------------------------------------------
+
+  if(NOT TARGET micro-os-plus-devices-stm32f4-extras-objects)
+
+    add_library(micro-os-plus-devices-stm32f4-extras-objects OBJECT EXCLUDE_FROM_ALL)
+
+    target_sources_micro_os_plus_devices_stm32f4_extras(micro-os-plus-devices-stm32f4-extras-objects)
+    target_include_directories_micro_os_plus_devices_stm32f4_extras(micro-os-plus-devices-stm32f4-extras-objects)
+    target_compile_definitions_micro_os_plus_devices_stm32f4_extras(micro-os-plus-devices-stm32f4-extras-objects)
+
+    add_library(micro-os-plus::devices-stm32f4-extras ALIAS micro-os-plus-devices-stm32f4-extras-objects)
+    message(STATUS "micro-os-plus::devices-stm32f4-extras")
+
+    target_link_libraries(
+      micro-os-plus-devices-stm32f4-extras-objects
+
+      PUBLIC
+        micro-os-plus::common
+        micro-os-plus::architecture-cortexm
+    )
+
+  endif()
+
+  # ---------------------------------------------------------------------------
+
+  if(NOT TARGET micro-os-plus-devices-stm32f4-extras-static)
+
+    add_library(micro-os-plus-devices-stm32f4-extras-static STATIC EXCLUDE_FROM_ALL)
+
+    target_sources_micro_os_plus_devices_stm32f4_extras(micro-os-plus-devices-stm32f4-extras-static)
+    target_include_directories_micro_os_plus_devices_stm32f4_extras(micro-os-plus-devices-stm32f4-extras-static)
+    target_compile_definitions_micro_os_plus_devices_stm32f4_extras(micro-os-plus-devices-stm32f4-extras-static)
+
+    add_library(micro-os-plus::devices-stm32f4-extras-static ALIAS micro-os-plus-devices-stm32f4-extras-static)
+
+    target_link_libraries(
+      micro-os-plus-devices-stm32f4-extras-static
+
+      PUBLIC
+        micro-os-plus::common
+        micro-os-plus::architecture-cortexm
+    )
+
+  endif()
+
+  # ---------------------------------------------------------------------------
 
 endfunction()
 
