@@ -34,7 +34,7 @@ function(target_sources_micro_os_plus_devices_stm32f4_extras target)
   target_sources(
     ${target}
 
-    PRIVATE
+    PUBLIC # PRIVATE
       ${xpack_current_folder}/src/vectors/vectors_${device_name}.c
   )
 
