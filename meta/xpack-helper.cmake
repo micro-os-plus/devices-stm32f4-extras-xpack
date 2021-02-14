@@ -103,6 +103,7 @@ function(add_libraries_micro_os_plus_devices_stm32f4_extras)
 
   # ---------------------------------------------------------------------------
 
+  if(true)
   if(NOT TARGET micro-os-plus-devices-stm32f4-extras-static)
 
     add_library(micro-os-plus-devices-stm32f4-extras-static STATIC EXCLUDE_FROM_ALL)
@@ -122,6 +123,7 @@ function(add_libraries_micro_os_plus_devices_stm32f4_extras)
     )
 
   endif()
+endif()
 
   # ---------------------------------------------------------------------------
 
