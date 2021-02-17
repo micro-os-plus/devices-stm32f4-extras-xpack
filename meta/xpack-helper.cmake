@@ -95,7 +95,6 @@ function(add_libraries_micro_os_plus_devices_stm32f4_extras)
       micro-os-plus-devices-stm32f4-extras-objects
 
       PUBLIC
-        micro-os-plus::common
         micro-os-plus::architecture-cortexm
     )
 
@@ -118,7 +117,6 @@ function(add_libraries_micro_os_plus_devices_stm32f4_extras)
       micro-os-plus-devices-stm32f4-extras-static
 
       PUBLIC
-        micro-os-plus::common
         micro-os-plus::architecture-cortexm
     )
 
