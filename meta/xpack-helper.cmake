@@ -80,29 +80,6 @@ function(add_libraries_micro_os_plus_devices_stm32f4_extras)
 
   # ---------------------------------------------------------------------------
 
-  if(NOT TARGET micro-os-plus-devices-stm32f4-extras-objects)
-
-    add_library(micro-os-plus-devices-stm32f4-extras-objects OBJECT EXCLUDE_FROM_ALL)
-
-    target_sources_micro_os_plus_devices_stm32f4_extras(micro-os-plus-devices-stm32f4-extras-objects)
-    target_include_directories_micro_os_plus_devices_stm32f4_extras(micro-os-plus-devices-stm32f4-extras-objects)
-    target_compile_definitions_micro_os_plus_devices_stm32f4_extras(micro-os-plus-devices-stm32f4-extras-objects)
-
-    add_library(micro-os-plus::devices-stm32f4-extras ALIAS micro-os-plus-devices-stm32f4-extras-objects)
-    message(STATUS "micro-os-plus::devices-stm32f4-extras")
-
-    target_link_libraries(
-      micro-os-plus-devices-stm32f4-extras-objects
-
-      PUBLIC
-        micro-os-plus::architecture-cortexm
-    )
-
-  endif()
-
-  # ---------------------------------------------------------------------------
-
-  if(true)
   if(NOT TARGET micro-os-plus-devices-stm32f4-extras-static)
 
     add_library(micro-os-plus-devices-stm32f4-extras-static STATIC EXCLUDE_FROM_ALL)
@@ -112,6 +89,7 @@ function(add_libraries_micro_os_plus_devices_stm32f4_extras)
     target_compile_definitions_micro_os_plus_devices_stm32f4_extras(micro-os-plus-devices-stm32f4-extras-static)
 
     add_library(micro-os-plus::devices-stm32f4-extras-static ALIAS micro-os-plus-devices-stm32f4-extras-static)
+    message(STATUS "micro-os-plus::devices-stm32f4-extras-static")
 
     target_link_libraries(
       micro-os-plus-devices-stm32f4-extras-static
@@ -121,7 +99,6 @@ function(add_libraries_micro_os_plus_devices_stm32f4_extras)
     )
 
   endif()
-endif()
 
   # ---------------------------------------------------------------------------
 
