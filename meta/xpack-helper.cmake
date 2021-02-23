@@ -18,61 +18,19 @@ set(micro-os-plus-devices-stm32f4-extras-included TRUE)
 message(STATUS "Including micro-os-plus-devices-stm32f4-extras...")
 
 # -----------------------------------------------------------------------------
+# Preprocessor symbols.
 
+# TODO: migrate to options.
 set(xpack_device_family_compile_definition "STM32F4")
 message(STATUS "${xpack_device_family_compile_definition}")
 
-# -----------------------------------------------------------------------------
-
-function(target_sources_micro_os_plus_devices_stm32f4_extras target)
-
-  get_filename_component(xpack_current_folder ${CMAKE_CURRENT_FUNCTION_LIST_DIR} DIRECTORY)
-
-  # Hopefully the file names follow the symbol definitions.
-  string(TOLOWER ${xpack_device_compile_definition} device_name)
-
-  target_sources(
-    ${target}
-
-    PRIVATE
-      ${xpack_current_folder}/src/vectors/vectors_${device_name}.c
-  )
-
-endfunction()
-
-# -----------------------------------------------------------------------------
-
-function(target_include_directories_micro_os_plus_devices_stm32f4_extras target)
-
-  get_filename_component(xpack_current_folder ${CMAKE_CURRENT_FUNCTION_LIST_DIR} DIRECTORY)
-  
-  target_include_directories(
-    ${target}
-
-    PUBLIC
-      ${xpack_current_folder}/include
-  )
-
-endfunction()
-
-# -----------------------------------------------------------------------------
-
-function(target_compile_definitions_micro_os_plus_devices_stm32f4_extras target)
-
-  get_filename_component(xpack_current_folder ${CMAKE_CURRENT_FUNCTION_LIST_DIR} DIRECTORY)
-
-  target_compile_definitions(
-    ${target}
-
-    PUBLIC
-      "${xpack_device_family_compile_definition}"
-  )
-
-endfunction()
-
 # =============================================================================
 
+# This also requires xpack_device_compile_definition to be defined by the user.
+
 function(add_libraries_micro_os_plus_devices_stm32f4_extras)
+
+  get_filename_component(xpack_current_folder ${CMAKE_CURRENT_FUNCTION_LIST_DIR} DIRECTORY)
 
   # ---------------------------------------------------------------------------
 
@@ -80,23 +38,48 @@ function(add_libraries_micro_os_plus_devices_stm32f4_extras)
 
   # ---------------------------------------------------------------------------
 
-  if(NOT TARGET micro-os-plus-devices-stm32f4-extras-static)
+  if(NOT TARGET micro-os-plus-devices-stm32f4-extras-interface)
 
-    add_library(micro-os-plus-devices-stm32f4-extras-static STATIC EXCLUDE_FROM_ALL)
+    add_library(micro-os-plus-devices-stm32f4-extras-interface INTERFACE EXCLUDE_FROM_ALL)
 
-    target_sources_micro_os_plus_devices_stm32f4_extras(micro-os-plus-devices-stm32f4-extras-static)
-    target_include_directories_micro_os_plus_devices_stm32f4_extras(micro-os-plus-devices-stm32f4-extras-static)
-    target_compile_definitions_micro_os_plus_devices_stm32f4_extras(micro-os-plus-devices-stm32f4-extras-static)
+    # Hopefully the file names follow the symbol definitions.
+    string(TOLOWER ${xpack_device_compile_definition} device_name)
+    
+    # -------------------------------------------------------------------------
+  
+    target_sources(
+      micro-os-plus-devices-stm32f4-extras-interface
+  
+      INTERFACE
+        ${xpack_current_folder}/src/vectors/vectors_${device_name}.c
+    )
 
-    add_library(micro-os-plus::devices-stm32f4-extras-static ALIAS micro-os-plus-devices-stm32f4-extras-static)
-    message(STATUS "micro-os-plus::devices-stm32f4-extras-static")
+    target_include_directories(
+      micro-os-plus-devices-stm32f4-extras-interface
+  
+      INTERFACE
+        ${xpack_current_folder}/include
+    )
 
+    target_compile_definitions(
+      micro-os-plus-devices-stm32f4-extras-interface
+  
+      INTERFACE
+        "${xpack_device_family_compile_definition}"
+    )
+  
     target_link_libraries(
-      micro-os-plus-devices-stm32f4-extras-static
+      micro-os-plus-devices-stm32f4-extras-interface
 
-      PUBLIC
+      INTERFACE
         micro-os-plus::architecture-cortexm
     )
+
+    # -------------------------------------------------------------------------
+    # Aliases
+
+    add_library(micro-os-plus::devices-stm32f4-extras ALIAS micro-os-plus-devices-stm32f4-extras-interface)
+    message(STATUS "micro-os-plus::devices-stm32f4-extras")
 
   endif()
 
