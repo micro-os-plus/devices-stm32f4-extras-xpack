@@ -18,7 +18,5 @@
 
 include("${CMAKE_CURRENT_LIST_DIR}/xpack-helper.cmake")
 
-add_libraries_micro_os_plus_devices_stm32f4_extras()
-
 # -----------------------------------------------------------------------------
 
