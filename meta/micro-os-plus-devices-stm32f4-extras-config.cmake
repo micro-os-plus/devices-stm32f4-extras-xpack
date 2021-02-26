@@ -34,7 +34,7 @@ message(STATUS "${xpack_device_family_compile_definition}")
 
 find_package(micro-os-plus-architecture-cortexm REQUIRED)
 
-# ---------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # The current folder.
 
 get_filename_component(xpack_current_folder ${CMAKE_CURRENT_LIST_DIR} DIRECTORY)
