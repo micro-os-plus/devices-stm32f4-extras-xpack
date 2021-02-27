@@ -362,7 +362,7 @@ void __attribute__ ((section(".after_vectors")))
 Default_Handler(void)
 {
 #if defined(DEBUG)
-  os_arch_brk();
+  os_architecture_brk();
 #endif
   while (1)
     {
