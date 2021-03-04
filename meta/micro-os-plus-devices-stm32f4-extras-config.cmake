@@ -25,7 +25,6 @@ message(STATUS "Processing xPack ${PACKAGE_JSON_NAME}@${PACKAGE_JSON_VERSION}...
 
 # TODO: migrate to options.
 set(xpack_device_family_compile_definition "STM32F4")
-message(STATUS "${xpack_device_family_compile_definition}")
 
 # This also requires xpack_device_compile_definition to be defined by the user.
 
@@ -50,6 +49,8 @@ if(NOT TARGET micro-os-plus-devices-stm32f4-extras-interface)
   
   # ---------------------------------------------------------------------------
 
+  message(STATUS "+ src/vectors/vectors_${device_name}.c")
+
   target_sources(
     micro-os-plus-devices-stm32f4-extras-interface
 
@@ -63,6 +64,9 @@ if(NOT TARGET micro-os-plus-devices-stm32f4-extras-interface)
     INTERFACE
       ${xpack_current_folder}/include
   )
+
+  message(STATUS "+ ${xpack_device_family_compile_definition}")
+  message(STATUS "+ ${xpack_device_compile_definition}")
 
   target_compile_definitions(
     micro-os-plus-devices-stm32f4-extras-interface
