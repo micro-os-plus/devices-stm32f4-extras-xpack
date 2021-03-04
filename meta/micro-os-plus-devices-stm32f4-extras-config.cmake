@@ -83,7 +83,7 @@ if(NOT TARGET micro-os-plus-devices-stm32f4-extras-interface)
   # Aliases.
 
   add_library(micro-os-plus::devices-stm32f4-extras ALIAS micro-os-plus-devices-stm32f4-extras-interface)
-  message(STATUS "micro-os-plus::devices-stm32f4-extras")
+  message(STATUS "=> micro-os-plus::devices-stm32f4-extras")
 
 endif()
 
