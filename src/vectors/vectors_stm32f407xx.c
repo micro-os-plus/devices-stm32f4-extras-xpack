@@ -214,12 +214,18 @@ FPU_IRQHandler(void);
 
 // ----------------------------------------------------------------------------
 
+// Provided by the linker script.
 extern uint32_t _initial_main_stack_pointer;
 
 typedef void
-(* const handler_ptr_t)(void);
+(*handler_ptr_t)(void);
+
 
 // ----------------------------------------------------------------------------
+
+#pragma GCC diagnostic push
+
+#pragma GCC diagnostic ignored "-Wpedantic"
 
 /**
  * The table of interrupt handlers. It has an explicit section name
@@ -344,6 +350,8 @@ handler_ptr_t _interrupt_vectors[] =
     HASH_RNG_IRQHandler,               // Hash and Rng
     FPU_IRQHandler,                    // FPU
 };
+
+#pragma GCC diagnostic pop
 
 // ----------------------------------------------------------------------------
 

@@ -31,7 +31,19 @@
 // ----------------------------------------------------------------------------
 
 #include <micro-os-plus/architecture.h>
+
+#pragma GCC diagnostic push
+
+#pragma GCC diagnostic ignored "-Wpadded"
+#if defined(__cplusplus)
+#pragma GCC diagnostic ignored "-Wuseless-cast"
+#pragma GCC diagnostic ignored "-Wold-style-cast"
+#pragma GCC diagnostic ignored "-Wvolatile"
+#endif
+
 #include "stm32f4xx.h"
+
+#pragma GCC diagnostic pop
 
 // ----------------------------------------------------------------------------
 
