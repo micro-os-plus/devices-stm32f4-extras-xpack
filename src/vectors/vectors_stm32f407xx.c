@@ -1,7 +1,7 @@
 /*
  * This file is part of the µOS++ distribution.
  *   (https://github.com/micro-os-plus)
- * Copyright (c) 2020 Liviu Ionescu.
+ * Copyright (c) 2021 Liviu Ionescu.
  *
  * Permission is hereby granted, free of charge, to any person
  * obtaining a copy of this software and associated documentation
@@ -214,12 +214,10 @@ FPU_IRQHandler(void);
 
 // ----------------------------------------------------------------------------
 
-// Provided by the linker script.
 extern uint32_t _initial_main_stack_pointer;
 
 typedef void
 (*handler_ptr_t)(void);
-
 
 // ----------------------------------------------------------------------------
 

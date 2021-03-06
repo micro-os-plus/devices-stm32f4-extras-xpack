@@ -1,7 +1,7 @@
 /*
  * This file is part of the µOS++ distribution.
  *   (https://github.com/micro-os-plus)
- * Copyright (c) 2020 Liviu Ionescu.
+ * Copyright (c) 2021 Liviu Ionescu.
  *
  * Permission is hereby granted, free of charge, to any person
  * obtaining a copy of this software and associated documentation
@@ -167,9 +167,13 @@ SPI4_IRQHandler(void);
 extern uint32_t _initial_main_stack_pointer;
 
 typedef void
-(* const handler_ptr_t)(void);
+(*handler_ptr_t)(void);
 
 // ----------------------------------------------------------------------------
+
+#pragma GCC diagnostic push
+
+#pragma GCC diagnostic ignored "-Wpedantic"
 
 /**
  * The table of interrupt handlers. It has an explicit section name
@@ -297,6 +301,8 @@ handler_ptr_t _interrupt_vectors[] =
     0,                                 // Reserved
     SPI4_IRQHandler,                   // SPI4
 };
+
+#pragma GCC diagnostic pop
 
 // ----------------------------------------------------------------------------
 
