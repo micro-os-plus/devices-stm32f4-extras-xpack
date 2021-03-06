@@ -14,7 +14,16 @@ The project is hosted on GitHub:
 To clone it:
 
 ```sh
-git clone https://github.com/micro-os-plus/devices-stm32f4-extras-xpack.git devices-stm32f4-extras-xpack.git
+git clone --recurse-submodules https://github.com/micro-os-plus/devices-stm32f4-extras-xpack.git devices-stm32f4-extras-xpack.git
+```
+
+## Regenerate vectors_*.c
+
+```sh
+version=1.25.2
+bash scripts/helper/generate-vectors-from-arm-startup.sh \
+  ${HOME}/STM32Cube/Repository/STM32Cube_FW_F4_V${version}/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/arm \
+  src/vectors
 ```
 
 ## Prerequisites
