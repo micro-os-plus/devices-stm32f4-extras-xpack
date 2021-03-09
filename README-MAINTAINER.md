@@ -103,7 +103,7 @@ When the package is considered stable:
 When the release is considered stable, promote it as `latest`:
 
 - `npm dist-tag ls @micro-os-plus/devices-stm32f4-extras`
-- `npm dist-tag add @micro-os-plus/devices-stm32f4-extras@2.0.0 latest`
+- `npm dist-tag add @micro-os-plus/devices-stm32f4-extras@2.0.1 latest`
 - `npm dist-tag ls @@micro-os-plus/devices-stm32f4-extras`
 
 ## Announce to the community
