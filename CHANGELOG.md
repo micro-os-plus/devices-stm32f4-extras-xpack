@@ -6,6 +6,10 @@ Please check
 [GitHub](https://github.com/micro-os-plus/devices-stm32f4-extras-xpack/issues/)
 and close existing issues and pull requests.
 
+## 2022-01-02
+
+- v2.0.3
+
 ## 2021-03-10
 
 - v2.0.2
