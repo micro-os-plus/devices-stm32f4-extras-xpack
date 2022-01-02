@@ -9,7 +9,7 @@
 
 The project is hosted on GitHub:
 
-- https://github.com/micro-os-plus/devices-stm32f4-extras-xpack.git
+- <https://github.com/micro-os-plus/devices-stm32f4-extras-xpack.git>
 
 To clone it:
 
@@ -69,7 +69,7 @@ as:
 
 The version is visible at:
 
-- https://www.npmjs.com/package/@micro-os-plus/devices-stm32f4-extras?activeTab=versions
+- <https://www.npmjs.com/package/@micro-os-plus/devices-stm32f4-extras?activeTab=versions>
 
 ## Testing
 
