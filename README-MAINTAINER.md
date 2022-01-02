@@ -14,7 +14,18 @@ The project is hosted on GitHub:
 To clone it:
 
 ```sh
-git clone --recurse-submodules https://github.com/micro-os-plus/devices-stm32f4-extras-xpack.git devices-stm32f4-extras-xpack.git
+git clone \
+  https://github.com/micro-os-plus/devices-stm32f4-extras-xpack.git \
+  devices-stm32f4-extras-xpack.git
+```
+
+For development purposes, clone the `xpack-develop` branch:
+
+```sh
+git clone \
+  --branch xpack-develop \
+  https://github.com/micro-os-plus/devices-stm32f4-extras-xpack.git \
+  devices-stm32f4-extras-xpack.git
 ```
 
 ## Regenerate vectors_*.c
