@@ -14,20 +14,24 @@ The project is hosted on GitHub:
 To clone it:
 
 ```sh
+rm -rf ~/Work/devices-stm32f4-extras-xpack.git && \
+mkdir -p ~/Work && \
 git clone \
   https://github.com/micro-os-plus/devices-stm32f4-extras-xpack.git \
-  devices-stm32f4-extras-xpack.git \
-git -C devices-stm32f4-extras-xpack.git submodule update --init --recursive
+  ~/Work/devices-stm32f4-extras-xpack.git && \
+git -C ~/Work/devices-stm32f4-extras-xpack.git submodule update --init --recursive
 ```
 
 For development purposes, clone the `xpack-develop` branch:
 
 ```sh
+rm -rf ~/Work/devices-stm32f4-extras-xpack.git && \
+mkdir -p ~/Work && \
 git clone \
   --branch xpack-develop \
   https://github.com/micro-os-plus/devices-stm32f4-extras-xpack.git \
-  devices-stm32f4-extras-xpack.git \
-git -C devices-stm32f4-extras-xpack.git submodule update --init --recursive
+  ~/Work/devices-stm32f4-extras-xpack.git && \
+git -C ~/Work/devices-stm32f4-extras-xpack.git submodule update --init --recursive
 ```
 
 ## Regenerate vectors_*.c
