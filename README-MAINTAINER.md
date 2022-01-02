@@ -16,7 +16,8 @@ To clone it:
 ```sh
 git clone \
   https://github.com/micro-os-plus/devices-stm32f4-extras-xpack.git \
-  devices-stm32f4-extras-xpack.git
+  devices-stm32f4-extras-xpack.git \
+git -C devices-stm32f4-extras-xpack.git submodule update --init --recursive
 ```
 
 For development purposes, clone the `xpack-develop` branch:
@@ -25,7 +26,8 @@ For development purposes, clone the `xpack-develop` branch:
 git clone \
   --branch xpack-develop \
   https://github.com/micro-os-plus/devices-stm32f4-extras-xpack.git \
-  devices-stm32f4-extras-xpack.git
+  devices-stm32f4-extras-xpack.git \
+git -C devices-stm32f4-extras-xpack.git submodule update --init --recursive
 ```
 
 ## Regenerate vectors_*.c
