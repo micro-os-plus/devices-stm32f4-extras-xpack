@@ -106,7 +106,7 @@ xpm run test
 
 ## Continuous Integration
 
-All available tests are also performed on GitHub Actions, as the
+The CI tests are performed on GitHub Actions, as the
 [CI on Push](https://github.com/micro-os-plus/devices-stm32f4-extras-xpack/actions?query=workflow%3A%22CI+on+Push%22)
 workflow.
 
