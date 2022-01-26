@@ -61,7 +61,7 @@ In the `micro-os-plus/web-jekyll` GitHub repo:
 - select the `develop` branch
 - add a new file to `_posts/devices-stm32f4-extras/releases`
 - name the file like `2020-12-19-devices-stm32f4-v1-1-0-released.md`
-- name the post like: **µOS++ devices-stm32f4 v2.0.3 released**
+- name the post like: **µOS++ devices-stm32f4 v2.1.0 released**
 - update the `date:` field with the current date
 - update the GitHub Actions URLs using the actual test pages
 
@@ -77,7 +77,7 @@ as:
 - commit all changes
 - update versions in `README.md` and `README-MAINTAINER.md`
 - update `CHANGELOG.md`
-- commit with a message like _prepare v2.0.3_
+- commit with a message like _prepare v2.1.0_
 - `npm pack` and check the content of the archive, which should list
   only the `package.json`, the `README.md`, `LICENSE` and `CHANGELOG.md`;
   possibly adjust `.npmignore`
@@ -125,7 +125,7 @@ When the package is considered stable:
 When the release is considered stable, promote it as `latest`:
 
 - `npm dist-tag ls @micro-os-plus/devices-stm32f4-extras`
-- `npm dist-tag add @micro-os-plus/devices-stm32f4-extras@2.0.3 latest`
+- `npm dist-tag add @micro-os-plus/devices-stm32f4-extras@2.1.0 latest`
 - `npm dist-tag ls @@micro-os-plus/devices-stm32f4-extras`
 
 ## Announce to the community
@@ -136,6 +136,6 @@ Post an announcement to the forum.
 
 - in a separate browser windows, open [TweetDeck](https://tweetdeck.twitter.com/)
 - using the `@micro_os_plus` account
-- paste the release name like **µOS++ devices-stm32f4 v2.0.3 released**
+- paste the release name like **µOS++ devices-stm32f4 v2.1.0 released**
 - paste the link to the Web page release
 - click the **Tweet** button
