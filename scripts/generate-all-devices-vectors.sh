@@ -36,7 +36,7 @@ script_folder_name="$(basename "${script_folder_path}")"
 
 # Script to generate the vector_*.c files from the CubeMX packages
 
-src_folder_path="$(dirname "${script_folder_path}")/src"
+src_folder_path="$(dirname "${script_folder_path}")/sources/src"
 
 version="1.25.2"
 bash "${script_folder_path}/helper/generate-vectors-from-arm-startup.sh" \
