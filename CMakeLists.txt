@@ -27,40 +27,80 @@
 cmake_minimum_required(VERSION 3.20)
 
 project(
-  micro-os-plus-devices-stm32f4-extras
+  micro-os-plus-devices-stm32f5-extras
   DESCRIPTION "µOS++ complementary STM32F4 files"
 )
 
-# Must be called from the project root folder.
-enable_testing()
+# PRIVATE: build definitions, used internally
+# INTERFACE: usage definitions, passed up to targets linking to it
+# PUBLIC: both
 
-# -----------------------------------------------------------------------------
-## Project wide setup ##
-
-enable_language(C)
-enable_language(CXX)
-enable_language(ASM)
-
-# Specify the C/C++ standards.
-set(CMAKE_C_STANDARD 11)
-set(CMAKE_C_STANDARD_REQUIRED ON)
-set(CMAKE_C_EXTENSIONS OFF)
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)
-
-# -----------------------------------------------------------------------------
-
-if ("${CMAKE_CURRENT_LIST_DIR}" STREQUAL "${CMAKE_SOURCE_DIR}")
-
-  # Tests, only when not part of a parent application
-  add_subdirectory(tests)
-
-else()
-
-  # Main targets built by this project.
-  add_subdirectory(sources)
-
+if(COMMAND xpack_get_package_name_and_version)
+  xpack_get_package_name_and_version("${CMAKE_CURRENT_SOURCE_DIR}/package.json")
+  message(VERBOSE "Processing xPack ${PACKAGE_JSON_NAME}@${PACKAGE_JSON_VERSION}...")
 endif()
+
+# -----------------------------------------------------------------------------
+# Preprocessor symbols.
+
+set(xpack_device_family_compile_definition "STM32F4")
+
+# -----------------------------------------------------------------------------
+
+# This function is called to instantiate libraries for all known devices.
+function(add_micro_os_plus_device_stm32f4_extra_library symbol_name)
+
+  # The file name part is derived from the symbol.
+  string(TOLOWER ${symbol_name} name)
+
+  add_library(micro-os-plus-devices-${name}-extras-interface INTERFACE EXCLUDE_FROM_ALL)
+
+  target_sources(
+    micro-os-plus-devices-${name}-extras-interface
+
+    INTERFACE
+      "src/vectors/vectors_${name}.c"
+  )
+
+  # message(VERBOSE "+ src/vectors/vectors_${name}.c")
+
+  target_include_directories(
+    micro-os-plus-devices-${name}-extras-interface
+
+    INTERFACE
+      "include"
+  )
+
+  # message(VERBOSE "+ include")
+
+  target_compile_definitions(
+    micro-os-plus-devices-${name}-extras-interface
+
+    INTERFACE
+      "${xpack_device_family_compile_definition}"
+      "${symbol_name}"
+  )
+
+  # message(VERBOSE "+ ${xpack_device_family_compile_definition}")
+  # message(VERBOSE "+ ${symbol_name}")
+
+  target_link_libraries(
+    micro-os-plus-devices-${name}-extras-interface
+
+    INTERFACE
+      micro-os-plus::architecture-cortexm
+  )
+
+  # -----------------------------------------------------------------------------
+  # Aliases.
+
+  add_library(micro-os-plus::devices-${name}-extras ALIAS micro-os-plus-devices-${name}-extras-interface)
+  message(VERBOSE "> micro-os-plus::devices-${name}-extras -> micro-os-plus-devices-${name}-extras-interface")
+
+endfunction()
+
+# -----------------------------------------------------------------------------
+
+include("${CMAKE_CURRENT_SOURCE_DIR}/cmake/add_devices_libraries.cmake")
 
 # -----------------------------------------------------------------------------
