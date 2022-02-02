@@ -3,7 +3,9 @@
 #   (https://github.com/micro-os-plus)
 # Copyright (c) 2021 Liviu Ionescu
 #
-# This Source Code Form is subject to the terms of the MIT License.
+# Permission to use, copy, modify, and/or distribute this software
+# for any purpose is hereby granted, under the terms of the MIT license.
+#
 # If a copy of the license was not distributed with this file, it can
 # be obtained from https://opensource.org/licenses/MIT/.
 #
@@ -13,7 +15,7 @@
 #
 # `add_subdirectory("xpacks/micro-os-plus-devices-stm32f4-extras")`
 #
-# The result is a library that can be added to the linker with:
+# The result is an interface library that can be added to the linker with:
 #
 # `target_link_libraries(your-target PUBLIC micro-os-plus::devices-stm32f4-extras)`
 #
@@ -85,8 +87,8 @@ function(add_micro_os_plus_device_stm32f4_extra_library symbol_name)
       "${symbol_name}"
   )
 
-  # message(VERBOSE "+ -D${xpack_device_family_compile_definition}")
-  # message(VERBOSE "+ -D${symbol_name}")
+  # message(VERBOSE "+ -D ${xpack_device_family_compile_definition}")
+  # message(VERBOSE "+ -D ${symbol_name}")
 
   target_link_libraries(
     micro-os-plus-devices-${name}-extras-interface
