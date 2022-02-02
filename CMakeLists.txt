@@ -31,14 +31,18 @@ project(
   DESCRIPTION "µOS++ complementary STM32F4 files"
 )
 
-# PRIVATE: build definitions, used internally
-# INTERFACE: usage definitions, passed up to targets linking to it
-# PUBLIC: both
-
 if(COMMAND xpack_get_package_name_and_version)
   xpack_get_package_name_and_version("${CMAKE_CURRENT_SOURCE_DIR}/package.json")
   message(VERBOSE "Processing xPack ${PACKAGE_JSON_NAME}@${PACKAGE_JSON_VERSION}...")
 endif()
+
+# -----------------------------------------------------------------------------
+## The project library definitions ##
+
+# https://cmake.org/cmake/help/v3.20/command/add_library.html?highlight=interface#normal-libraries
+# PRIVATE: build definitions, used internally
+# INTERFACE: usage definitions, passed up to targets linking to it
+# PUBLIC: both
 
 # -----------------------------------------------------------------------------
 # Preprocessor symbols.
@@ -81,8 +85,8 @@ function(add_micro_os_plus_device_stm32f4_extra_library symbol_name)
       "${symbol_name}"
   )
 
-  # message(VERBOSE "+ ${xpack_device_family_compile_definition}")
-  # message(VERBOSE "+ ${symbol_name}")
+  # message(VERBOSE "+ -D${xpack_device_family_compile_definition}")
+  # message(VERBOSE "+ -D${symbol_name}")
 
   target_link_libraries(
     micro-os-plus-devices-${name}-extras-interface
