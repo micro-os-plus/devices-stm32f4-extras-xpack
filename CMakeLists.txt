@@ -29,7 +29,7 @@
 cmake_minimum_required(VERSION 3.20)
 
 project(
-  micro-os-plus-devices-stm32f5-extras
+  micro-os-plus-devices-stm32f4-extras
   DESCRIPTION "µOS++ complementary STM32F4 files"
 )
 
@@ -61,6 +61,15 @@ function(add_micro_os_plus_device_stm32f4_extra_library symbol_name)
 
   add_library(micro-os-plus-devices-${name}-extras-interface INTERFACE EXCLUDE_FROM_ALL)
 
+  target_include_directories(
+    micro-os-plus-devices-${name}-extras-interface
+
+    INTERFACE
+      "include"
+  )
+
+  # message(VERBOSE "+ -I include")
+
   target_sources(
     micro-os-plus-devices-${name}-extras-interface
 
@@ -69,15 +78,6 @@ function(add_micro_os_plus_device_stm32f4_extra_library symbol_name)
   )
 
   # message(VERBOSE "+ src/vectors/vectors_${name}.c")
-
-  target_include_directories(
-    micro-os-plus-devices-${name}-extras-interface
-
-    INTERFACE
-      "include"
-  )
-
-  # message(VERBOSE "+ include")
 
   target_compile_definitions(
     micro-os-plus-devices-${name}-extras-interface
@@ -89,6 +89,13 @@ function(add_micro_os_plus_device_stm32f4_extra_library symbol_name)
 
   # message(VERBOSE "+ -D ${xpack_device_family_compile_definition}")
   # message(VERBOSE "+ -D ${symbol_name}")
+
+  target_compile_options(
+    micro-os-plus-devices-${name}-extras-interface
+
+    INTERFACE
+      # ... perhaps ignore some warnings.
+  )
 
   target_link_libraries(
     micro-os-plus-devices-${name}-extras-interface
