@@ -6,6 +6,15 @@ Please check
 [GitHub](https://github.com/micro-os-plus/devices-stm32f4-extras-xpack/issues/)
 and close existing issues and pull requests.
 
+## 2022-02-04
+
+- b62a8e6 cmake: add xpack_display_target_lists
+- 98b0782 add meson support
+
+## 2022-01-28
+
+- 51e8cef rework CMake, top config, no sources
+
 ## 2022-01-26
 
 - v2.1.0
