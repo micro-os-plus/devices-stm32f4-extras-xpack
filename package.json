@@ -1,6 +1,6 @@
 {
   "name": "@micro-os-plus/devices-stm32f4-extras",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "A source xPack with µOS++ complementary STM32F4 files",
   "main": "",
   "scripts": {
