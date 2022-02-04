@@ -55,10 +55,10 @@ foreach symbol_name: devices_stm32f4_symbol_names
     ]
   )
 
-  message('+ -I include')
-  message('+ src/vectors/vectors_' + name + '.c')
-  message('+ -D ' + xpack_device_family_compile_definition)
-  message('+ -D ' + symbol_name)
+  # message('+ -I include')
+  # message('+ src/vectors/vectors_' + name + '.c')
+  # message('+ -D ' + xpack_device_family_compile_definition)
+  # message('+ -D ' + symbol_name)
   message('> micro_os_plus_devices_' + name + '_extras_dependency')
 
   set_variable('micro_os_plus_devices_' + name + '_extras_dependency', dep)
