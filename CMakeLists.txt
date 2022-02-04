@@ -65,16 +65,12 @@ function(add_micro_os_plus_device_stm32f4_extra_library symbol_name)
       "include"
   )
 
-  # message(VERBOSE "+ -I include")
-
   target_sources(
     micro-os-plus-devices-${name}-extras-interface
 
     INTERFACE
       "src/vectors/vectors_${name}.c"
   )
-
-  # message(VERBOSE "+ src/vectors/vectors_${name}.c")
 
   target_compile_definitions(
     micro-os-plus-devices-${name}-extras-interface
@@ -83,9 +79,6 @@ function(add_micro_os_plus_device_stm32f4_extra_library symbol_name)
       "${xpack_device_family_compile_definition}"
       "${symbol_name}"
   )
-
-  # message(VERBOSE "+ -D ${xpack_device_family_compile_definition}")
-  # message(VERBOSE "+ -D ${symbol_name}")
 
   target_compile_options(
     micro-os-plus-devices-${name}-extras-interface
@@ -100,6 +93,10 @@ function(add_micro_os_plus_device_stm32f4_extra_library symbol_name)
     INTERFACE
       micro-os-plus::architecture-cortexm
   )
+
+  # if (COMMAND xpack_display_target_lists)
+  #   xpack_display_target_lists(micro-os-plus-devices-${name}-extras-interface)
+  # endif()
 
   # -----------------------------------------------------------------------------
   # Aliases.
