@@ -8,6 +8,11 @@ and close existing issues and pull requests.
 
 ## 2022-02-04
 
+- v2.2.1
+- b6cc06e meson: comment out verbosity
+
+## 2022-02-04
+
 - v2.2.0
 - b62a8e6 cmake: add xpack_display_target_lists
 - 98b0782 add meson support
