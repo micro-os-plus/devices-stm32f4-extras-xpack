@@ -58,40 +58,25 @@ function(add_micro_os_plus_device_stm32f4_extra_library symbol_name)
 
   add_library(micro-os-plus-devices-${name}-extras-interface INTERFACE EXCLUDE_FROM_ALL)
 
-  target_include_directories(
-    micro-os-plus-devices-${name}-extras-interface
-
-    INTERFACE
-      "include"
+  target_include_directories(micro-os-plus-devices-${name}-extras-interface INTERFACE
+    "include"
   )
 
-  target_sources(
-    micro-os-plus-devices-${name}-extras-interface
-
-    INTERFACE
-      "src/vectors/vectors_${name}.c"
+  target_sources(micro-os-plus-devices-${name}-extras-interface INTERFACE
+    "src/vectors/vectors_${name}.c"
   )
 
-  target_compile_definitions(
-    micro-os-plus-devices-${name}-extras-interface
-
-    INTERFACE
-      "${xpack_device_family_compile_definition}"
-      "${symbol_name}"
+  target_compile_definitions(micro-os-plus-devices-${name}-extras-interface INTERFACE
+    "${xpack_device_family_compile_definition}"
+    "${symbol_name}"
   )
 
-  target_compile_options(
-    micro-os-plus-devices-${name}-extras-interface
-
-    INTERFACE
-      # ... perhaps ignore some warnings.
+  target_compile_options(micro-os-plus-devices-${name}-extras-interface INTERFACE
+    # None.
   )
 
-  target_link_libraries(
-    micro-os-plus-devices-${name}-extras-interface
-
-    INTERFACE
-      micro-os-plus::architecture-cortexm
+  target_link_libraries(micro-os-plus-devices-${name}-extras-interface INTERFACE
+    micro-os-plus::architecture-cortexm
   )
 
   # if (COMMAND xpack_display_target_lists)
