@@ -1,7 +1,7 @@
 [![license](https://img.shields.io/github/license/micro-os-plus/devices-stm32f4-extras-xpack)](https://github.com/micro-os-plus/devices-stm32f4-extras-xpack/blob/xpack/LICENSE)
 [![CI on Push](https://github.com/micro-os-plus/devices-stm32f4-extras-xpack/workflows/CI%20on%20Push/badge.svg)](https://github.com/micro-os-plus/devices-stm32f4-extras-xpack/actions?query=workflow%3A%22CI+on+Push%22)
 
-# A source xPack with µOS++ complementary STM32F4 files
+# A source library xPack with µOS++ complementary STM32F4 files
 
 This project includes files not available in the official STM32CubeMX packages,
 like the `vectors_*.c`, with the interrupt vectors.
@@ -19,8 +19,8 @@ For maintainer infos, please see the
 
 ## Install
 
-As a source xPacks, the easiest way to add it to a project is via **xpm**,
-but it can also be used as any Git project, for example as a submodule.
+As a source library xPacks, the easiest way to add it to a project is via
+**xpm**, but it can also be used as any Git project, for example as a submodule.
 
 ### Prerequisites
 
