@@ -1,5 +1,5 @@
 [![license](https://img.shields.io/github/license/micro-os-plus/devices-stm32f4-extras-xpack)](https://github.com/micro-os-plus/devices-stm32f4-extras-xpack/blob/xpack/LICENSE)
-[![CI on Push](https://github.com/micro-os-plus/devices-stm32f4-extras-xpack/workflows/CI%20on%20Push/badge.svg)](https://github.com/micro-os-plus/devices-stm32f4-extras-xpack/actions?query=workflow%3A%22CI+on+Push%22)
+[![CI on Push](https://github.com/micro-os-plus/devices-stm32f4-extras-xpack/actions/workflows/CI.yml/badge.svg)](https://github.com/micro-os-plus/devices-stm32f4-extras-xpack/actions/workflows/CI.yml)
 [![GitHub issues](https://img.shields.io/github/issues/micro-os-plus/devices-stm32f4-extras-xpack.svg)](https://github.com/micro-os-plus/devices-stm32f4-extras-xpack/issues/)
 [![GitHub pulls](https://img.shields.io/github/issues-pr/micro-os-plus/devices-stm32f4-extras-xpack.svg)](https://github.com/micro-os-plus/devices-stm32f4-extras-xpack/pulls)
 
@@ -55,30 +55,68 @@ Code formatting is done using `clang-format --style=file`, either manually
 from a script, or automatically from Visual Studio Code, or the Eclipse
 CppStyle plug-in.
 
-## Prepare a new blog post
+Always reformat the source files that were changed.
 
-In the `micro-os-plus/web-jekyll` GitHub repo:
+## How to make new releases
 
-- select the `develop` branch
-- add a new file to `_posts/devices-stm32f4-extras/releases`
-- name the file like `2020-12-19-devices-stm32f4-v1-1-0-released.md`
-- name the post like: **µOS++ devices-stm32f4 v2.2.2 released**
-- update the `date:` field with the current date
-- update the GitHub Actions URLs using the actual test pages
+### Release schedule
 
-If any, refer to closed
-[issues](https://github.com/micro-os-plus/devices-stm32f4-extras-xpack/issues/)
-as:
+There are no fixed releases.
 
-- **[Issue:\[#1\]\(...\)]**.
+### Check Git
+
+In the `micro-os-plus/devices-stm32f4-extras-xpack` Git repo:
+
+- switch to the `xpack-develop` branch
+- if needed, merge the `xpack` branch
+
+No need to add a tag here, it'll be added when the release is created.
+
+### Increase the version
+
+Determine the upstream version (like `4.0.0`) and update the `package.json`
+file; the format is `4.0.0-pre`.
+
+### Fix possible open issues
+
+Check GitHub issues and pull requests:
+
+- <https://github.com/micro-os-plus/devices-stm32f4-extras-xpack/issues/>
+
+and fix them; assign them to a milestone (like `4.0.0`).
+
+### Update `README-MAINTAINER.md`
+
+Update the `README-MAINTAINER.md` file to reflect the changes
+related to the new version.
+
+### Update `CHANGELOG.md`
+
+- open the `CHANGELOG.md` file
+- check if all previous fixed issues are in
+- add a new entry like _- v4.0.0 prepared_
+- commit with a message like _prepare v4.0.0_
+
+### Push changes
+
+- reformat the source files that were changed
+- commit and push
+
+### Manual tests
+
+To run the tests manually on the local machine:
+
+```sh
+cd ~Work/devices-stm32f4-extras-xpack.git
+
+xpm run install-all
+xpm run test-all
+```
 
 ## Publish on the npmjs.com server
 
 - select the `xpack-develop` branch
 - commit all changes
-- update versions in `README.md` and `README-MAINTAINER.md`
-- update `CHANGELOG.md`
-- commit with a message like _prepare v2.2.2_
 - `npm pack` and check the content of the archive, which should list
   only `package.json`, `README.md`, `LICENSE`, `CHANGELOG.md`,
   the sources and CMake/meson files;
@@ -110,7 +148,7 @@ xpm run test
 ## Continuous Integration
 
 The CI tests are performed on GitHub Actions, as the
-[CI on Push](https://github.com/micro-os-plus/devices-stm32f4-extras-xpack/actions?query=workflow%3A%22CI+on+Push%22)
+[CI on Push](https://github.com/micro-os-plus/devices-stm32f4-extras-xpack/actions/workflows/CI.yml)
 workflow.
 
 ## Update the repo
@@ -129,11 +167,3 @@ When the release is considered stable, promote it as `latest`:
 - `npm dist-tag ls @micro-os-plus/devices-stm32f4-extras`
 - `npm dist-tag add @micro-os-plus/devices-stm32f4-extras@2.2.2 latest`
 - `npm dist-tag ls @micro-os-plus/devices-stm32f4-extras`
-
-## Share on Twitter
-
-- in a separate browser windows, open [TweetDeck](https://tweetdeck.twitter.com/)
-- using the `@micro_os_plus` account
-- paste the release name like **µOS++ devices-stm32f4 v2.2.2 released**
-- paste the link to the Web page release
-- click the **Tweet** button
