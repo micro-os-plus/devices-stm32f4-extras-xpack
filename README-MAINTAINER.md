@@ -15,24 +15,24 @@ To clone the stable branch (`xpack`), run the following commands in a
 terminal (on Windows use the _Git Bash_ console):
 
 ```sh
-rm -rf ~/Work/devices-stm32f4-extras-xpack.git && \
-mkdir -p ~/Work && \
+rm -rf ~/Work/micro-os-plus/devices-stm32f4-extras-xpack.git && \
+mkdir -p ~/Work/micro-os-plus && \
 git clone \
   https://github.com/micro-os-plus/devices-stm32f4-extras-xpack.git \
-  ~/Work/devices-stm32f4-extras-xpack.git && \
-git -C ~/Work/devices-stm32f4-extras-xpack.git submodule update --init --recursive
+  ~/Work/micro-os-plus/devices-stm32f4-extras-xpack.git && \
+git -C ~/Work/micro-os-plus/devices-stm32f4-extras-xpack.git submodule update --init --recursive
 ```
 
 For development purposes, clone the `xpack-develop` branch:
 
 ```sh
-rm -rf ~/Work/devices-stm32f4-extras-xpack.git && \
-mkdir -p ~/Work && \
+rm -rf ~/Work/micro-os-plus/devices-stm32f4-extras-xpack.git && \
+mkdir -p ~/Work/micro-os-plus && \
 git clone \
   --branch xpack-develop \
   https://github.com/micro-os-plus/devices-stm32f4-extras-xpack.git \
-  ~/Work/devices-stm32f4-extras-xpack.git && \
-git -C ~/Work/devices-stm32f4-extras-xpack.git submodule update --init --recursive
+  ~/Work/micro-os-plus/devices-stm32f4-extras-xpack.git && \
+git -C ~/Work/micro-os-plus/devices-stm32f4-extras-xpack.git submodule update --init --recursive
 ```
 
 ## Regenerate vectors_*.c
