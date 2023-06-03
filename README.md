@@ -2,7 +2,7 @@
 [![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/micro-os-plus/devices-stm32f0-extras-xpack)](https://github.com/micro-os-plus/devices-stm32f0-extras-xpack/tags/)
 [![npm (scoped)](https://img.shields.io/npm/v/@micro-os-plus/devices-stm32f0-extras.svg?color=blue)](https://www.npmjs.com/package/@micro-os-plus/devices-stm32f0-extras/)
 [![license](https://img.shields.io/github/license/micro-os-plus/devices-stm32f4-extras-xpack)](https://github.com/micro-os-plus/devices-stm32f4-extras-xpack/blob/xpack/LICENSE)
-[![CI on Push](https://github.com/micro-os-plus/devices-stm32f4-extras-xpack/actions/workflows/CI.yml/badge.svg)](https://github.com/micro-os-plus/devices-stm32f4-extras-xpack/actions/workflows/CI.yml)
+[![CI on Push](https://github.com/micro-os-plus/devices-stm32f4-extras-xpack/actions/workflows/ci.yml/badge.svg)](https://github.com/micro-os-plus/devices-stm32f4-extras-xpack/actions/workflows/ci.yml)
 
 # A source library xPack with µOS++ complementary STM32F4 files
 
