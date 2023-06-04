@@ -14,7 +14,7 @@
 
 # This file is intended to be consumed by applications with:
 #
-# `subdir('xpacks/micro-os-plus-devices-stm32f4-extras')`
+# `subdir('xpacks/@micro-os-plus/devices-stm32f4-extras')`
 #
 # The result is a dependency that can be added to the linker with:
 #

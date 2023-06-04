@@ -62,7 +62,7 @@ xpm init # Unless a package.json is already present
 
 xpm install @micro-os-plus/devices-stm32f4-extras@latest
 
-ls -l xpacks/micro-os-plus-devices-stm32f4-extras
+ls -l xpacks/@micro-os-plus/devices-stm32f4-extras
 ```
 
 ### Git submodule
@@ -76,7 +76,7 @@ git init # Unless already a Git project
 mkdir -p xpacks
 
 git submodule add https://github.com/micro-os-plus/devices-stm32f4-extras-xpack.git \
-  xpacks/micro-os-plus-devices-stm32f4
+  xpacks/@micro-os-plus/devices-stm32f4
 ```
 
 ## Branches
