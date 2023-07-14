@@ -39,7 +39,13 @@
   "xpack": {
     "minimumXpmRequired": "0.16.2",
     "dependencies": {},
-    "devDependencies": {},
+    "devDependencies": {
+      "@micro-os-plus/build-helper": {
+        "specifier": "^2.11.0",
+        "local": "link",
+        "platforms": "all"
+      }
+    },
     "properties": {},
     "actions": {},
     "buildConfigurations": {}
