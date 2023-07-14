@@ -32,14 +32,18 @@ script_name="$(basename "${script_path}")"
 script_folder_path="$(dirname "${script_path}")"
 script_folder_name="$(basename "${script_folder_path}")"
 
+project_folder_path="$(dirname "${script_folder_path}")"
+
 # =============================================================================
 
 # Script to generate the vector_*.c files from the CubeMX packages
 
-src_folder_path="$(dirname "${script_folder_path}")/sources/src"
+src_folder_path="${project_folder_path}/src"
 
-version="1.25.2"
-bash "${script_folder_path}/helper/generate-vectors-from-arm-startup.sh" \
+mkdir -pv "${src_folder_path}/vectors"
+
+version="1.27.1"
+bash "${project_folder_path}/xpacks/@micro-os-plus/build-helper/dev-scripts/generate-vectors-from-arm-startup.sh" \
   "${HOME}/STM32Cube/Repository/STM32Cube_FW_F4_V${version}/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/arm" \
   "${src_folder_path}/vectors"
 
