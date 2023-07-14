@@ -1,7 +1,7 @@
 /*
  * This file is part of the µOS++ distribution.
  *   (https://github.com/micro-os-plus/)
- * Copyright (c) 2021 Liviu Ionescu.
+ * Copyright (c) 2023 Liviu Ionescu.
  *
  * Permission to use, copy, modify, and/or distribute this software
  * for any purpose is hereby granted, under the terms of the MIT license.
@@ -219,7 +219,7 @@ DMA2D_IRQHandler(void);
 
 // ----------------------------------------------------------------------------
 
-extern uint32_t _initial_main_stack_pointer;
+extern uint32_t __stack;
 
 typedef void
 (*handler_ptr_t)(void);
@@ -239,7 +239,7 @@ __attribute__ ((section(".interrupt_vectors"),used))
 handler_ptr_t _interrupt_vectors[] =
   {
     // Cortex-M Core Handlers
-    (handler_ptr_t) &_initial_main_stack_pointer, // MSP
+    (handler_ptr_t) &__stack,          // MSP
     Reset_Handler,                     // The reset handler
 
     NMI_Handler,                       // The NMI handler
@@ -376,12 +376,11 @@ handler_ptr_t _interrupt_vectors[] =
 void __attribute__ ((section(".after_vectors")))
 Default_Handler(void)
 {
-#if defined(MICRO_OS_PLUS_DEBUG)
+#if defined(DEBUG)
   micro_os_plus_architecture_brk();
 #endif
   while (1)
     {
-      ;
     }
 }
 
