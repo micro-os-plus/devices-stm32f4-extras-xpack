@@ -4,7 +4,7 @@
 [![license](https://img.shields.io/github/license/micro-os-plus/devices-stm32f4-extras-xpack)](https://github.com/micro-os-plus/devices-stm32f4-extras-xpack/blob/xpack/LICENSE)
 [![CI on Push](https://github.com/micro-os-plus/devices-stm32f4-extras-xpack/actions/workflows/ci.yml/badge.svg)](https://github.com/micro-os-plus/devices-stm32f4-extras-xpack/actions/workflows/ci.yml)
 
-# A source library xPack with µOS++ complementary STM32F4 files
+# A source code library with µOS++ complementary STM32F4 files
 
 This project includes files not available in the official STM32CubeMX packages,
 like the `vectors_*.c`, with the interrupt vectors.
@@ -161,7 +161,7 @@ are:
 
 ## License
 
-The original content is released under the
-[MIT License](https://opensource.org/licenses/MIT/),
+Unless otherwise stated, the content is released under the terms of the
+[MIT License](https://opensource.org/licenses/mit/),
 with all rights reserved to
 [Liviu Ionescu](https://github.com/ilg-ul).
