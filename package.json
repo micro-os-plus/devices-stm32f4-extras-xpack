@@ -1,7 +1,7 @@
 {
   "name": "@micro-os-plus/devices-stm32f4-extras",
   "version": "2.2.2",
-  "description": "A source library xPack with µOS++ complementary STM32F4 files",
+  "description": "A source code library with µOS++ complementary STM32F4 files",
   "main": "",
   "scripts": {
     "npm-install": "npm install",
