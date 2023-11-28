@@ -23,7 +23,7 @@ git clone \
 git -C ~/Work/micro-os-plus/devices-stm32f4-extras-xpack.git submodule update --init --recursive
 ```
 
-For development purposes, clone the `xpack-develop` branch:
+For development purposes, clone the development branch (`xpack-develop`):
 
 ```sh
 rm -rf ~/Work/micro-os-plus/devices-stm32f4-extras-xpack.git && \
@@ -48,6 +48,9 @@ bash scripts/helper/generate-vectors-from-arm-startup.sh \
 
 A recent [xpm](https://xpack.github.io/xpm/), which is a portable
 [Node.js](https://nodejs.org/) command line application.
+
+To run the native tests, a C++ development environment is required.
+On macOS install Command Line Tools, on Ubuntu `build-essential`.
 
 ## Code formatting
 
